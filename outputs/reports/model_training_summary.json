@@ -1,0 +1,23 @@
+{
+    "project": "Short-Term Ferry Ticket Demand Forecasting",
+    "training_completed_at": "2026-10-28T16:46:33.898435",
+    "horizons_minutes": [
+        15,
+        30,
+        60,
+        120
+    ],
+    "train_fraction": 0.8,
+    "random_state": 42,
+    "random_forest_max_training_rows": 60000,
+    "successful_model_runs": 24,
+    "failed_runs": [],
+    "metrics": [
+        "MAE",
+        "RMSE",
+        "WAPE_Percent",
+        "Bias",
+        "R2"
+    ],
+    "validation": "Chronological holdout. Target-time purging is applied when a target timestamp column exists in the dataset."
+}

@@ -1,0 +1,2262 @@
+FINAL READ-ONLY AUDIT ? Ferry-Demand-Forecasting
+File: C:\Users\sutha\OneDrive\Desktop\Ferry-Demand-Forecasting\demand_insights.py
+Lines: 15,383
+Project execution: NOT RUN
+File modification: NOT PERFORMED
+Syntax: PASS
+
+====================================================================================================
+1. STRUCTURE AND DUPLICATE DEFINITIONS
+====================================================================================================
+Top-level functions: 228
+All function definitions (including nested): 231
+Classes: 9
+Main entry-point blocks: 1
+  __main__ at line 15382
+No duplicate function names.
+
+====================================================================================================
+2. ALL PART 2 / REPORTING FUNCTION LOCATIONS
+====================================================================================================
+  650-  703  write_json_report(data, destination, indent)
+  706-  755  write_csv_report(dataframe, destination, index)
+  969- 1016  load_demand_data(source_path)
+ 1557- 1628  calculate_demand_metric(series, demand_name)
+ 1631- 1652  calculate_all_demand_metrics(dataframe)
+ 1655- 1695  calculate_total_demand(dataframe)
+ 1895- 2006  aggregate_demand_by_group(dataframe, group_columns)
+ 2009- 2023  build_demand_by_hour(dataframe)
+ 2026- 2046  build_demand_by_day_of_week(dataframe)
+ 2049- 2074  build_demand_by_month(dataframe)
+ 2077- 2095  build_demand_by_date(dataframe)
+ 2098- 2112  build_demand_by_time_block(dataframe)
+ 2115- 2129  build_demand_by_weekday_category(dataframe)
+ 2136- 2170  build_demand_correlation(dataframe)
+ 2251- 2305  identify_peak_demand_periods(grouped_dataframe, period_column, demand_column, top_n)
+ 2308- 2385  build_peak_demand_summary(dataframe, top_n)
+ 2556- 2698  generate_demand_insights(dataframe, demand_metrics, timestamp_summary)
+ 2705- 2724  normalize_report_dataframe(dataframe)
+ 2743- 2774  build_demand_insights_table(insights)
+ 2777- 2806  build_source_schema_report(dataframe)
+ 2813- 2967  analyze_demand_dataframe(source_dataframe)
+ 3135- 3256  run_core_demand_analysis(source_path)
+ 3401- 3412  get_demand_metrics(dataframe)
+ 3431- 3442  get_hourly_demand(dataframe)
+ 3445- 3456  get_daily_demand(dataframe)
+ 3459- 3470  get_weekday_demand(dataframe)
+ 3473- 3484  get_monthly_demand(dataframe)
+ 3487- 3500  get_peak_demand(dataframe, top_n)
+ 3531- 3559  get_demand_insights(dataframe)
+ 3860- 3871  di2_ensure_directories()
+ 3878- 3993  di2_prepare_dataframe(dataframe)
+ 3996- 4020  di2_get_demand_column(demand_name)
+ 4023- 4036  di2_get_display_demand_name(internal_column)
+ 4039- 4050  di2_round_series(series, digits)
+ 4053- 4066  di2_safe_mean(series)
+ 4069- 4082  di2_safe_median(series)
+ 4085- 4098  di2_safe_sum(series)
+ 4101- 4114  di2_safe_std(series)
+ 4121- 4195  di2_validate_chronology(dataframe)
+ 4198- 4254  di2_build_interval_flags(dataframe)
+ 4261- 4367  di2_build_daily_series(dataframe)
+ 4370- 4462  di2_add_daily_change_metrics(daily_dataframe)
+ 4469- 4587  di2_build_weekly_series(dataframe)
+ 4594- 4703  di2_build_monthly_series(dataframe)
+ 4710- 4807  _legacy_di2_build_hourly_profile(dataframe)
+ 4810- 4874  di2_rank_hourly_profile(hourly_profile, demand_name)
+ 4881- 4977  _legacy_di2_build_weekday_profile(dataframe)
+ 4984- 5068  _legacy_di2_build_weekend_comparison(dataframe)
+ 5071- 5141  di2_compare_weekday_weekend_means(comparison_table)
+ 5148- 5220  di2_build_time_block_profile(dataframe)
+ 5227- 5287  di2_calculate_thresholds(series, peak_percentile, low_percentile)
+ 5290- 5336  di2_flag_peak_periods(dataframe, demand_column, peak_percentile)
+ 5339- 5381  di2_flag_low_demand_periods(dataframe, demand_column, low_percentile)
+ 5388- 5444  di2_build_daily_peak_table(daily_dataframe, demand_name, top_n)
+ 5447- 5503  di2_build_daily_low_table(daily_dataframe, demand_name, bottom_n)
+ 5506- 5555  di2_build_peak_period_summary(daily_dataframe, top_n)
+ 5562- 5653  di2_add_rolling_metrics(dataframe, demand_columns, windows, min_periods)
+ 5656- 5709  _legacy_di2_add_rolling_change_metrics(dataframe, demand_columns, windows)
+ 5716- 5805  di2_calculate_linear_trend(series)
+ 5808- 5840  di2_summarize_daily_trends(daily_dataframe)
+ 5847- 5895  di2_build_hour_weekday_matrix(dataframe, demand_name)
+ 5898- 5944  di2_build_month_hour_matrix(dataframe, demand_name)
+ 5947- 6024  di2_build_weekday_hour_summary(dataframe)
+ 6031- 6104  di2_add_monthly_change_metrics(monthly_dataframe)
+ 6111- 6171  di2_add_weekly_change_metrics(weekly_dataframe)
+ 6178- 6218  di2_calculate_robust_z_scores(series)
+ 6221- 6315  di2_flag_unusual_demand(dataframe, demand_columns, z_threshold)
+ 6318- 6343  di2_build_unusual_daily_periods(daily_dataframe, z_threshold)
+ 6350- 6386  di2_summarize_zero_and_missing_demand(dataframe)
+ 6393- 6486  di2_distribution_summary(series, demand_name)
+ 6489- 6511  di2_build_distribution_report(dataframe)
+ 6518- 6570  di2_calculate_coefficient_of_variation(series)
+ 6573- 6603  di2_build_stability_report(dataframe)
+ 6610- 6718  di2_build_profile_coverage(dataframe)
+ 6725- 6810  di2_add_daily_coverage_flags(daily_dataframe, minimum_observations)
+ 6817- 6922  di2_build_daily_observation_profile(dataframe)
+ 6929- 6970  di2_add_demand_share(grouped_dataframe, demand_column, output_column)
+ 6973- 6994  di2_add_both_demand_shares(grouped_dataframe)
+ 7001- 7107  di2_generate_peak_hour_insights(hourly_profile, top_n)
+ 7114- 7202  di2_generate_weekday_insights(weekday_profile)
+ 7209- 7293  di2_generate_monthly_insights(monthly_dataframe)
+ 7300- 7363  di2_generate_trend_insights(trend_summary)
+ 7370- 7460  di2_build_seasonality_summary(dataframe)
+ 7467- 7556  di2_build_trend_report(dataframe)
+ 7563- 7655  di2_build_peak_profile_summary(dataframe, top_n)
+ 7662- 7770  di2_generate_all_time_insights(dataframe)
+ 7777- 7928  di2_build_output_tables(dataframe)
+ 7935- 8057  di2_export_output_tables(tables)
+ 8064- 8175  di2_export_json_reports(dataframe)
+ 8182- 8204  di2_export_insights(dataframe)
+ 8211- 8266  di2_build_run_summary(dataframe, written_files, started_at, status, errors)
+ 8273- 8364  di2_analyze_time_patterns(dataframe)
+ 8371- 8434  di2_export_analysis(analysis, source_dataframe)
+ 8441- 8567  di2_run_time_pattern_analysis(source_path, export_reports)
+ 8574- 8583  get_di2_daily_trend(dataframe)
+ 8586- 8595  get_di2_weekly_trend(dataframe)
+ 8598- 8607  get_di2_monthly_trend(dataframe)
+ 8610- 8617  get_di2_hourly_profile(dataframe)
+ 8620- 8627  get_di2_weekday_profile(dataframe)
+ 8630- 8639  get_di2_weekend_comparison(dataframe)
+ 8642- 8649  get_di2_seasonality_summary(dataframe)
+ 8652- 8663  get_di2_peak_period_summary(dataframe, top_n)
+ 8666- 8673  get_di2_distribution_summary(dataframe)
+ 8676- 8689  get_di2_unusual_periods(dataframe, z_threshold)
+ 8692- 8699  get_di2_profile_coverage(dataframe)
+ 8702- 8715  get_di2_rolling_trend(dataframe, windows)
+ 8718- 8725  get_di2_chronology_summary(dataframe)
+ 8834- 8856  di2_create_output_directories()
+ 8863- 8921  di2_validate_dataframe(dataframe, timestamp_column, demand_column)
+ 8928- 9037  di2_prepare_time_dataframe(dataframe, timestamp_column, demand_column)
+ 9044- 9066  di2_safe_float(value, default)
+ 9069- 9090  di2_safe_divide(numerator, denominator, default)
+ 9093- 9110  di2_round_numeric_columns(dataframe, decimals)
+ 9117- 9230  di2_group_demand(dataframe, group_columns, demand_column)
+ 9237- 9305  _modern_di2_build_hourly_profile(dataframe, demand_column)
+ 9312- 9364  _modern_di2_build_weekday_profile(dataframe, demand_column)
+ 9371- 9424  di2_build_weekday_hour_matrix(dataframe, demand_column, statistic)
+ 9431- 9497  _modern_di2_build_weekend_comparison(dataframe, demand_column)
+ 9504- 9546  di2_build_monthly_profile(dataframe, demand_column)
+ 9553- 9615  di2_build_year_month_profile(dataframe, demand_column)
+ 9622- 9688  di2_build_yearly_profile(dataframe, demand_column)
+ 9695- 9784  di2_build_daily_profile(dataframe, demand_column)
+ 9791- 9869  di2_identify_peak_periods(dataframe, demand_column, quantile)
+ 9876- 9913  di2_build_quantile_summary(dataframe, demand_column)
+ 9920- 9997  di2_build_rolling_statistics(dataframe, demand_column, windows)
+10004-10073  _modern_di2_add_rolling_change_metrics(dataframe, demand_column, window)
+10080-10138  di2_classify_demand_levels(dataframe, demand_column)
+10145-10189  di2_build_hourly_variability(dataframe, demand_column)
+10196-10240  di2_build_peak_hours_by_weekday(dataframe, demand_column)
+10247-10267  di2_build_peak_dates(daily_dataframe, top_n)
+10274-10297  di2_build_low_demand_dates(daily_dataframe, bottom_n)
+10304-10357  di2_estimate_trend_direction(values)
+10364-10408  di2_build_daily_trend_summary(daily_dataframe)
+10415-10649  di2_generate_time_insights(dataframe, hourly_profile, weekday_profile, monthly_profile, weekend_profile, daily_profile, demand_column)
+10656-10843  di2_build_time_analysis(dataframe, timestamp_column, demand_column)
+10850-10884  di2_export_dataframe(dataframe, output_path)
+10891-10978  di2_export_json(data, output_path)
+10985-11106  di2_export_time_analysis(analysis)
+11113-11216  di2_build_text_report(analysis)
+11223-11251  di2_export_text_report(analysis, filename)
+11258-11297  di2_run_time_intelligence(dataframe, timestamp_column, demand_column, export_results)
+11312-11333  di2_add_rolling_change_metrics(dataframe, demand_columns, windows, demand_column, window)
+11336-11343  di2_build_hourly_profile(dataframe, demand_column)
+11346-11353  di2_build_weekday_profile(dataframe, demand_column)
+11356-11363  di2_build_weekend_comparison(dataframe, demand_column)
+11434-11440  di2_get_metadata()
+11443-11449  di2_list_functions()
+11452-11465  di2_get_function(name)
+12372-12446  di3_calculate_demand_changes(dataframe, demand_column)
+12607-12659  di3_analyze_zero_demand(dataframe, demand_column, zero_limit)
+12666-12715  di3_build_zero_demand_summary(dataframe, demand_column)
+12722-12821  di3_find_zero_demand_runs(dataframe, demand_column, timestamp_column)
+12828-12855  di3_find_negative_demand(dataframe, demand_column)
+12862-12918  di3_build_missing_value_report(dataframe)
+12925-12979  di3_build_duplicate_report(dataframe)
+12986-13080  di3_build_timestamp_gap_report(dataframe, timestamp_column, expected_interval_minutes)
+13211-13300  di3_build_demand_quality_report(dataframe, demand_column)
+
+====================================================================================================
+3. CRITICAL FUNCTION SOURCE ? CURRENT IMPLEMENTATION
+====================================================================================================
+
+--- di2_build_daily_series [1/1], lines 4261-4367 ---
+def di2_build_daily_series(
+    dataframe: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Aggregate observed records by calendar date.
+
+    This table represents totals across available records for each date.
+    A date with missing time intervals may have an incomplete total.
+    """
+
+    prepared = di2_prepare_dataframe(dataframe)
+
+    grouped = (
+        prepared.groupby(
+            "_analysis_date",
+            dropna=False,
+            observed=False,
+        )
+        .agg(
+            Observation_Count=(
+                "_analysis_source_row",
+                "count",
+            ),
+            Sales_Count=(
+                "_analysis_sales",
+                "sum",
+            ),
+            Sales_Valid_Count=(
+                "_analysis_sales",
+                "count",
+            ),
+            Redemption_Count=(
+                "_analysis_redemption",
+                "sum",
+            ),
+            Redemption_Valid_Count=(
+                "_analysis_redemption",
+                "count",
+            ),
+            First_Observed_Timestamp=(
+                "_analysis_timestamp",
+                "min",
+            ),
+            Last_Observed_Timestamp=(
+                "_analysis_timestamp",
+                "max",
+            ),
+        )
+        .reset_index()
+    )
+
+    grouped = grouped.rename(
+        columns={
+            "_analysis_date": "Date",
+        }
+    )
+
+    grouped["Date"] = pd.to_datetime(
+        grouped["Date"],
+        errors="coerce",
+    )
+
+    grouped["Sales_Count"] = grouped[
+        "Sales_Count"
+    ].where(
+        grouped["Sales_Valid_Count"] > 0
+    )
+
+    grouped["Redemption_Count"] = grouped[
+        "Redemption_Count"
+    ].where(
+        grouped["Redemption_Valid_Count"] > 0
+    )
+
+    grouped["Day_Of_Week"] = (
+        grouped["Date"].dt.day_name()
+    )
+
+    grouped["Day_Of_Week_Number"] = (
+        grouped["Date"].dt.dayofweek
+    )
+
+    grouped["Year"] = grouped["Date"].dt.year
+
+    grouped["Month_Number"] = grouped[
+        "Date"
+    ].dt.month
+
+    grouped["Month_Name"] = grouped[
+        "Date"
+    ].dt.month_name()
+
+    grouped["Is_Weekend"] = (
+        grouped["Day_Of_Week_Number"] >= 5
+    )
+
+    grouped["Day_Category"] = np.where(
+        grouped["Is_Weekend"],
+        "Weekend",
+        "Weekday",
+    )
+
+    return grouped.sort_values(
+        "Date"
+    ).reset_index(
+        drop=True
+    )
+
+--- di2_add_rolling_metrics [1/1], lines 5562-5653 ---
+def di2_add_rolling_metrics(
+    dataframe: pd.DataFrame,
+    demand_columns: Sequence[str] = (
+        "Sales_Count",
+        "Redemption_Count",
+    ),
+    windows: Sequence[int] = (3, 7, 14),
+    min_periods: Optional[int] = None,
+) -> pd.DataFrame:
+    """
+    Add rolling mean and rolling standard deviation.
+
+    The input should contain one chronologically ordered row per period,
+    for example one row per calendar day.
+    """
+
+    if not isinstance(dataframe, pd.DataFrame):
+        raise UnsupportedInputError(
+            "dataframe must be a pandas DataFrame."
+        )
+
+    if not windows:
+        raise ValueError(
+            "At least one rolling window must be provided."
+        )
+
+    normalized_windows = []
+
+    for window in windows:
+        window_value = safe_int(
+            window,
+            default=0,
+        )
+
+        if window_value < 1:
+            raise ValueError(
+                "Rolling windows must be positive integers."
+            )
+
+        normalized_windows.append(
+            window_value
+        )
+
+    result = dataframe.copy()
+
+    for demand_column in demand_columns:
+        if demand_column not in result.columns:
+            raise SourceDataValidationError(
+                f"Missing demand column: {demand_column}"
+            )
+
+        result[demand_column] = pd.to_numeric(
+            result[demand_column],
+            errors="coerce",
+        )
+
+        for window in sorted(
+            set(normalized_windows)
+        ):
+            effective_min_periods = (
+                min_periods
+                if min_periods is not None
+                else window
+            )
+
+            if not 1 <= effective_min_periods <= window:
+                raise ValueError(
+                    "min_periods must be between 1 and window."
+                )
+
+            rolling = result[
+                demand_column
+            ].rolling(
+                window=window,
+                min_periods=effective_min_periods,
+            )
+
+            mean_name = (
+                f"{demand_column}_Rolling_Mean_{window}"
+            )
+
+            std_name = (
+                f"{demand_column}_Rolling_Std_{window}"
+            )
+
+            result[mean_name] = rolling.mean()
+
+            result[std_name] = rolling.std(
+                ddof=1
+            )
+
+    return result
+
+--- _legacy_di2_add_rolling_change_metrics [1/1], lines 5656-5709 ---
+def _legacy_di2_add_rolling_change_metrics(
+    dataframe: pd.DataFrame,
+    demand_columns: Sequence[str] = (
+        "Sales_Count",
+        "Redemption_Count",
+    ),
+    windows: Sequence[int] = (3, 7),
+) -> pd.DataFrame:
+    """
+    Add change between current demand and its rolling mean.
+
+    A positive change means the observed total is above its rolling baseline.
+    It does not automatically mean demand is abnormal.
+    """
+
+    result = di2_add_rolling_metrics(
+        dataframe,
+        demand_columns=demand_columns,
+        windows=windows,
+    )
+
+    for demand_column in demand_columns:
+        for window in sorted(
+            set(int(value) for value in windows)
+        ):
+            mean_column = (
+                f"{demand_column}_Rolling_Mean_{window}"
+            )
+
+            difference_column = (
+                f"{demand_column}_Vs_Rolling_Mean_{window}"
+            )
+
+            percent_column = (
+                f"{demand_column}_Vs_Rolling_Mean_{window}_Percent"
+            )
+
+            baseline = result[mean_column]
+
+            result[difference_column] = (
+                result[demand_column] - baseline
+            )
+
+            result[percent_column] = (
+                result[difference_column]
+                .div(
+                    baseline.where(
+                        baseline != 0
+                    )
+                )
+                .mul(100)
+            )
+
+    return result
+
+--- _modern_di2_add_rolling_change_metrics [1/1], lines 10004-10073 ---
+def _modern_di2_add_rolling_change_metrics(
+    dataframe: pd.DataFrame,
+    demand_column: str = "Sales Count",
+    window: int = 12,
+) -> pd.DataFrame:
+    """
+    Add rolling averages and rolling change metrics.
+
+    This function does not make future predictions. It summarizes
+    the recent observed values.
+    """
+    if dataframe.empty:
+        return dataframe.copy()
+
+    if window < 1:
+        raise ValueError(
+            "window must be at least 1."
+        )
+
+    result = dataframe.copy()
+
+    values = pd.to_numeric(
+        result[demand_column],
+        errors="coerce",
+    )
+
+    result["DI2_Rolling_Mean"] = (
+        values.rolling(
+            window=window,
+            min_periods=1,
+        ).mean()
+    )
+
+    result["DI2_Rolling_Std"] = (
+        values.rolling(
+            window=window,
+            min_periods=1,
+        ).std().fillna(0)
+    )
+
+    result["DI2_Rolling_Upper_Band"] = (
+        result["DI2_Rolling_Mean"]
+        + 2 * result["DI2_Rolling_Std"]
+    )
+
+    result["DI2_Rolling_Lower_Band"] = (
+        result["DI2_Rolling_Mean"]
+        - 2 * result["DI2_Rolling_Std"]
+    ).clip(
+        lower=0
+    )
+
+    result["DI2_Difference_From_Rolling_Mean"] = (
+        values - result["DI2_Rolling_Mean"]
+    )
+
+    result["DI2_Relative_To_Rolling_Mean_Percent"] = (
+        result.apply(
+            lambda row: di2_safe_divide(
+                row["DI2_Difference_From_Rolling_Mean"]
+                * 100,
+                row["DI2_Rolling_Mean"],
+            ),
+            axis=1,
+        )
+    )
+
+    return di2_round_numeric_columns(
+        result
+    )
+
+--- di2_add_rolling_change_metrics [1/1], lines 11312-11333 ---
+def di2_add_rolling_change_metrics(
+    dataframe,
+    demand_columns=("Sales_Count", "Redemption_Count"),
+    windows=(3, 7, 14),
+    demand_column=None,
+    window=12,
+):
+    """Dispatch to the compatible legacy or modern rolling workflow."""
+    if demand_column is not None:
+        return _modern_di2_add_rolling_change_metrics(
+            dataframe,
+            demand_column=demand_column,
+            window=window,
+        )
+
+    selected_windows = (3, 7, 14) if windows is None else windows
+
+    return _legacy_di2_add_rolling_change_metrics(
+        dataframe,
+        demand_columns=demand_columns,
+        windows=selected_windows,
+    )
+
+--- _legacy_di2_build_hourly_profile [1/1], lines 4710-4807 ---
+def _legacy_di2_build_hourly_profile(
+    dataframe: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Compare demand across clock hours.
+
+    Results aggregate all available dates. A high total can reflect a
+    combination of high demand and more observations at that hour.
+    """
+
+    prepared = di2_prepare_dataframe(dataframe)
+
+    grouped = (
+        prepared.groupby(
+            "_analysis_hour",
+            dropna=False,
+        )
+        .agg(
+            Observation_Count=(
+                "_analysis_source_row",
+                "count",
+            ),
+            Sales_Count=(
+                "_analysis_sales",
+                "sum",
+            ),
+            Sales_Mean=(
+                "_analysis_sales",
+                "mean",
+            ),
+            Sales_Median=(
+                "_analysis_sales",
+                "median",
+            ),
+            Sales_Max=(
+                "_analysis_sales",
+                "max",
+            ),
+            Redemption_Count=(
+                "_analysis_redemption",
+                "sum",
+            ),
+            Redemption_Mean=(
+                "_analysis_redemption",
+                "mean",
+            ),
+            Redemption_Median=(
+                "_analysis_redemption",
+                "median",
+            ),
+            Redemption_Max=(
+                "_analysis_redemption",
+                "max",
+            ),
+        )
+        .reset_index()
+        .rename(
+            columns={
+                "_analysis_hour": "Hour",
+            }
+        )
+    )
+
+    grouped["Hour_Label"] = grouped[
+        "Hour"
+    ].map(
+        lambda hour: (
+            f"{int(hour):02d}:00"
+            if pd.notna(hour)
+            else "Unknown"
+        )
+    )
+
+    grouped["Time_Block"] = grouped[
+        "Hour"
+    ].map(
+        classify_time_block
+    )
+
+    for column in [
+        "Sales_Count",
+        "Sales_Mean",
+        "Sales_Median",
+        "Sales_Max",
+        "Redemption_Count",
+        "Redemption_Mean",
+        "Redemption_Median",
+        "Redemption_Max",
+    ]:
+        grouped[column] = grouped[column].round(
+            DEFAULT_ROUNDING_DIGITS
+        )
+
+    return grouped.sort_values(
+        "Hour"
+    ).reset_index(
+        drop=True
+    )
+
+--- _modern_di2_build_hourly_profile [1/1], lines 9237-9305 ---
+def _modern_di2_build_hourly_profile(
+    dataframe: pd.DataFrame,
+    demand_column: str = "Sales Count",
+) -> pd.DataFrame:
+    """
+    Analyze demand distribution across the 24 hours of the day.
+
+    Important:
+    The output describes observed ticket demand. It does not
+    estimate passenger queues or ferry capacity.
+    """
+    if dataframe.empty:
+        return pd.DataFrame()
+
+    hourly = di2_group_demand(
+        dataframe=dataframe,
+        group_columns=[
+            "DI2_Hour",
+        ],
+        demand_column=demand_column,
+    )
+
+    if hourly.empty:
+        return hourly
+
+    hourly["Hour_Label"] = (
+        hourly["DI2_Hour"].astype(str).str.zfill(2)
+        + ":00"
+    )
+
+    hourly = hourly.sort_values(
+        "DI2_Hour"
+    ).reset_index(
+        drop=True
+    )
+
+    total_demand = di2_safe_float(
+        hourly["Total_Demand"].sum()
+    )
+
+    hourly["Share_Of_Observed_Demand_Percent"] = (
+        hourly["Total_Demand"].apply(
+            lambda value: di2_safe_divide(
+                value * 100,
+                total_demand,
+            )
+        )
+    )
+
+    overall_mean = di2_safe_float(
+        dataframe[demand_column].mean()
+    )
+
+    hourly["Mean_Demand_Vs_Overall"] = (
+        hourly["Mean_Demand"] - overall_mean
+    )
+
+    hourly["Mean_Demand_Index"] = (
+        hourly["Mean_Demand"].apply(
+            lambda value: di2_safe_divide(
+                value * 100,
+                overall_mean,
+            )
+        )
+    )
+
+    return di2_round_numeric_columns(
+        hourly
+    )
+
+--- di2_build_hourly_profile [1/1], lines 11336-11343 ---
+def di2_build_hourly_profile(dataframe, demand_column=None):
+    """Preserve both legacy and modern hourly profile interfaces."""
+    if demand_column is not None:
+        return _modern_di2_build_hourly_profile(
+            dataframe,
+            demand_column=demand_column,
+        )
+    return _legacy_di2_build_hourly_profile(dataframe)
+
+--- _legacy_di2_build_weekday_profile [1/1], lines 4881-4977 ---
+def _legacy_di2_build_weekday_profile(
+    dataframe: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Compare observed demand by weekday.
+
+    Mean demand per recorded observation is included to complement totals.
+    """
+
+    prepared = di2_prepare_dataframe(dataframe)
+
+    grouped = (
+        prepared.groupby(
+            [
+                "_analysis_day_of_week",
+                "_analysis_day_name",
+            ],
+            dropna=False,
+        )
+        .agg(
+            Observation_Count=(
+                "_analysis_source_row",
+                "count",
+            ),
+            Sales_Count=(
+                "_analysis_sales",
+                "sum",
+            ),
+            Sales_Mean=(
+                "_analysis_sales",
+                "mean",
+            ),
+            Sales_Median=(
+                "_analysis_sales",
+                "median",
+            ),
+            Sales_Std=(
+                "_analysis_sales",
+                "std",
+            ),
+            Redemption_Count=(
+                "_analysis_redemption",
+                "sum",
+            ),
+            Redemption_Mean=(
+                "_analysis_redemption",
+                "mean",
+            ),
+            Redemption_Median=(
+                "_analysis_redemption",
+                "median",
+            ),
+            Redemption_Std=(
+                "_analysis_redemption",
+                "std",
+            ),
+        )
+        .reset_index()
+        .rename(
+            columns={
+                "_analysis_day_of_week": "Weekday_Number",
+                "_analysis_day_name": "Weekday",
+            }
+        )
+    )
+
+    grouped["Day_Category"] = np.where(
+        grouped["Weekday_Number"] >= 5,
+        "Weekend",
+        "Weekday",
+    )
+
+    grouped["Weekday"] = pd.Categorical(
+        grouped["Weekday"],
+        categories=DI2_WEEKDAY_ORDER,
+        ordered=True,
+    )
+
+    for column in [
+        "Sales_Count",
+        "Sales_Mean",
+        "Sales_Median",
+        "Sales_Std",
+        "Redemption_Count",
+        "Redemption_Mean",
+        "Redemption_Median",
+        "Redemption_Std",
+    ]:
+        grouped[column] = grouped[column].round(
+            DEFAULT_ROUNDING_DIGITS
+        )
+
+    return grouped.sort_values(
+        "Weekday_Number"
+    ).reset_index(
+        drop=True
+    )
+
+--- _modern_di2_build_weekday_profile [1/1], lines 9312-9364 ---
+def _modern_di2_build_weekday_profile(
+    dataframe: pd.DataFrame,
+    demand_column: str = "Sales Count",
+) -> pd.DataFrame:
+    """
+    Compare observed demand across the seven weekdays.
+    """
+    if dataframe.empty:
+        return pd.DataFrame()
+
+    result = di2_group_demand(
+        dataframe=dataframe,
+        group_columns=[
+            "DI2_Day_Of_Week",
+            "DI2_Day_Name",
+        ],
+        demand_column=demand_column,
+    )
+
+    if result.empty:
+        return result
+
+    result = result.sort_values(
+        "DI2_Day_Of_Week"
+    ).reset_index(
+        drop=True
+    )
+
+    overall_mean = di2_safe_float(
+        dataframe[demand_column].mean()
+    )
+
+    result["Mean_Demand_Index"] = (
+        result["Mean_Demand"].apply(
+            lambda value: di2_safe_divide(
+                value * 100,
+                overall_mean,
+            )
+        )
+    )
+
+    result["Demand_Share_Percent"] = (
+        result["Total_Demand"].apply(
+            lambda value: di2_safe_divide(
+                value * 100,
+                dataframe[demand_column].sum(),
+            )
+        )
+    )
+
+    return di2_round_numeric_columns(
+        result
+    )
+
+--- di2_build_weekday_profile [1/1], lines 11346-11353 ---
+def di2_build_weekday_profile(dataframe, demand_column=None):
+    """Preserve both legacy and modern weekday profile interfaces."""
+    if demand_column is not None:
+        return _modern_di2_build_weekday_profile(
+            dataframe,
+            demand_column=demand_column,
+        )
+    return _legacy_di2_build_weekday_profile(dataframe)
+
+--- _legacy_di2_build_weekend_comparison [1/1], lines 4984-5068 ---
+def _legacy_di2_build_weekend_comparison(
+    dataframe: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Compare weekday and weekend observations.
+
+    This comparison is based on available records, not assumed operating hours.
+    """
+
+    prepared = di2_prepare_dataframe(dataframe)
+
+    grouped = (
+        prepared.groupby(
+            "_analysis_day_category",
+            dropna=False,
+        )
+        .agg(
+            Observation_Count=(
+                "_analysis_source_row",
+                "count",
+            ),
+            Distinct_Dates=(
+                "_analysis_date",
+                "nunique",
+            ),
+            Sales_Count=(
+                "_analysis_sales",
+                "sum",
+            ),
+            Sales_Mean=(
+                "_analysis_sales",
+                "mean",
+            ),
+            Sales_Median=(
+                "_analysis_sales",
+                "median",
+            ),
+            Sales_Std=(
+                "_analysis_sales",
+                "std",
+            ),
+            Redemption_Count=(
+                "_analysis_redemption",
+                "sum",
+            ),
+            Redemption_Mean=(
+                "_analysis_redemption",
+                "mean",
+            ),
+            Redemption_Median=(
+                "_analysis_redemption",
+                "median",
+            ),
+            Redemption_Std=(
+                "_analysis_redemption",
+                "std",
+            ),
+        )
+        .reset_index()
+        .rename(
+            columns={
+                "_analysis_day_category": "Day_Category",
+            }
+        )
+    )
+
+    for column in [
+        "Sales_Count",
+        "Sales_Mean",
+        "Sales_Median",
+        "Sales_Std",
+        "Redemption_Count",
+        "Redemption_Mean",
+        "Redemption_Median",
+        "Redemption_Std",
+    ]:
+        grouped[column] = grouped[column].round(
+            DEFAULT_ROUNDING_DIGITS
+        )
+
+    return grouped.sort_values(
+        "Day_Category"
+    ).reset_index(
+        drop=True
+    )
+
+--- _modern_di2_build_weekend_comparison [1/1], lines 9431-9497 ---
+def _modern_di2_build_weekend_comparison(
+    dataframe: pd.DataFrame,
+    demand_column: str = "Sales Count",
+) -> pd.DataFrame:
+    """
+    Compare observed demand on weekdays and weekends.
+
+    Raw totals may be misleading if the dataset contains unequal
+    numbers of weekdays and weekend days. The output therefore
+    includes average demand per record and the number of dates.
+    """
+    if dataframe.empty:
+        return pd.DataFrame()
+
+    result = di2_group_demand(
+        dataframe=dataframe,
+        group_columns=[
+            "DI2_Is_Weekend",
+        ],
+        demand_column=demand_column,
+    )
+
+    if result.empty:
+        return result
+
+    result["Day_Type"] = result[
+        "DI2_Is_Weekend"
+    ].map(
+        {
+            True: "Weekend",
+            False: "Weekday",
+        }
+    )
+
+    date_counts = dataframe.groupby(
+        "DI2_Is_Weekend"
+    )["DI2_Date"].nunique()
+
+    result["Unique_Dates"] = result[
+        "DI2_Is_Weekend"
+    ].map(
+        date_counts
+    ).fillna(0).astype(int)
+
+    result["Average_Records_Per_Date"] = (
+        result.apply(
+            lambda row: di2_safe_divide(
+                row["Record_Count"],
+                row["Unique_Dates"],
+            ),
+            axis=1,
+        )
+    )
+
+    result["Average_Daily_Demand_Proxy"] = (
+        result.apply(
+            lambda row: di2_safe_divide(
+                row["Total_Demand"],
+                row["Unique_Dates"],
+            ),
+            axis=1,
+        )
+    )
+
+    return di2_round_numeric_columns(
+        result
+    )
+
+--- di2_build_weekend_comparison [1/1], lines 11356-11363 ---
+def di2_build_weekend_comparison(dataframe, demand_column=None):
+    """Preserve both legacy and modern weekend comparison interfaces."""
+    if demand_column is not None:
+        return _modern_di2_build_weekend_comparison(
+            dataframe,
+            demand_column=demand_column,
+        )
+    return _legacy_di2_build_weekend_comparison(dataframe)
+
+--- di2_build_seasonality_summary [1/1], lines 7370-7460 ---
+def di2_build_seasonality_summary(
+    dataframe: pd.DataFrame,
+) -> dict[str, Any]:
+    """
+    Build descriptive hourly, weekday, and month profiles.
+
+    The output identifies patterns in historical records, not guaranteed
+    recurring seasonal effects.
+    """
+
+    prepared = di2_prepare_dataframe(
+        dataframe
+    )
+
+    hourly = di2_build_hourly_profile(
+        prepared
+    )
+
+    weekday = di2_build_weekday_profile(
+        prepared
+    )
+
+    time_block = di2_build_time_block_profile(
+        prepared
+    )
+
+    monthly = di2_build_monthly_series(
+        prepared
+    )
+
+    hourly_sales = hourly.sort_values(
+        "Sales_Mean",
+        ascending=False,
+        na_position="last",
+    ).head(5)
+
+    hourly_redemption = hourly.sort_values(
+        "Redemption_Mean",
+        ascending=False,
+        na_position="last",
+    ).head(5)
+
+    weekday_sales = weekday.sort_values(
+        "Sales_Mean",
+        ascending=False,
+        na_position="last",
+    ).head(7)
+
+    weekday_redemption = weekday.sort_values(
+        "Redemption_Mean",
+        ascending=False,
+        na_position="last",
+    ).head(7)
+
+    return {
+        "module": DI2_MODULE_LABEL,
+        "version": DI2_VERSION,
+        "generated_at_utc": current_utc_timestamp(),
+        "source_rows_after_timestamp_filter": int(
+            len(prepared)
+        ),
+        "hourly_profile": records_from_dataframe(
+            hourly
+        ),
+        "weekday_profile": records_from_dataframe(
+            weekday
+        ),
+        "time_block_profile": records_from_dataframe(
+            time_block
+        ),
+        "monthly_profile": records_from_dataframe(
+            monthly
+        ),
+        "top_average_sales_hours": records_from_dataframe(
+            hourly_sales
+        ),
+        "top_average_redemption_hours": records_from_dataframe(
+            hourly_redemption
+        ),
+        "weekday_sales_ranking": records_from_dataframe(
+            weekday_sales
+        ),
+        "weekday_redemption_ranking": records_from_dataframe(
+            weekday_redemption
+        ),
+        "interpretation": (
+            "Hourly and weekday averages are calculated over available "
+            "records. They should be interpreted alongside coverage "
+            "statistics, not as proof of a fixed operating schedule."
+        ),
+    }
+
+--- di2_build_peak_profile_summary [1/1], lines 7563-7655 ---
+def di2_build_peak_profile_summary(
+    dataframe: pd.DataFrame,
+    top_n: int = 5,
+) -> dict[str, Any]:
+    """Create ranked summaries for hours, weekdays, and time blocks."""
+
+    if top_n < 1:
+        raise ValueError(
+            "top_n must be at least 1."
+        )
+
+    hourly = di2_build_hourly_profile(
+        dataframe
+    )
+
+    weekday = di2_build_weekday_profile(
+        dataframe
+    )
+
+    time_block = di2_build_time_block_profile(
+        dataframe
+    )
+
+    def rank_table(
+        table: pd.DataFrame,
+        metric_column: str,
+        limit: int,
+    ) -> list[dict[str, Any]]:
+        if metric_column not in table.columns:
+            return []
+
+        ranked = table.sort_values(
+            metric_column,
+            ascending=False,
+            na_position="last",
+        ).head(limit)
+
+        return records_from_dataframe(
+            ranked
+        )
+
+    return {
+        "top_n": top_n,
+        "sales": {
+            "highest_average_hours": rank_table(
+                hourly,
+                "Sales_Mean",
+                top_n,
+            ),
+            "highest_total_hours": rank_table(
+                hourly,
+                "Sales_Count",
+                top_n,
+            ),
+            "highest_average_weekdays": rank_table(
+                weekday,
+                "Sales_Mean",
+                top_n,
+            ),
+            "highest_average_time_blocks": rank_table(
+                time_block,
+                "Sales_Mean",
+                top_n,
+            ),
+        },
+        "redemption": {
+            "highest_average_hours": rank_table(
+                hourly,
+                "Redemption_Mean",
+                top_n,
+            ),
+            "highest_total_hours": rank_table(
+                hourly,
+                "Redemption_Count",
+                top_n,
+            ),
+            "highest_average_weekdays": rank_table(
+                weekday,
+                "Redemption_Mean",
+                top_n,
+            ),
+            "highest_average_time_blocks": rank_table(
+                time_block,
+                "Redemption_Mean",
+                top_n,
+            ),
+        },
+        "warning": (
+            "Total demand by hour and mean demand per observation answer "
+            "different questions. Rankings should identify which measure "
+            "is being compared."
+        ),
+    }
+
+--- di2_generate_all_time_insights [1/1], lines 7662-7770 ---
+def di2_generate_all_time_insights(
+    dataframe: pd.DataFrame,
+) -> list[dict[str, Any]]:
+    """Generate descriptive insights from the Part 2 profiles."""
+
+    prepared = di2_prepare_dataframe(
+        dataframe
+    )
+
+    daily = di2_build_daily_series(
+        prepared
+    )
+
+    hourly = di2_build_hourly_profile(
+        prepared
+    )
+
+    weekday = di2_build_weekday_profile(
+        prepared
+    )
+
+    monthly = di2_build_monthly_series(
+        prepared
+    )
+
+    trend_summary = di2_summarize_daily_trends(
+        daily
+    )
+
+    insights = []
+
+    insights.extend(
+        di2_generate_peak_hour_insights(
+            hourly
+        )
+    )
+
+    insights.extend(
+        di2_generate_weekday_insights(
+            weekday
+        )
+    )
+
+    insights.extend(
+        di2_generate_monthly_insights(
+            monthly
+        )
+    )
+
+    insights.extend(
+        di2_generate_trend_insights(
+            trend_summary
+        )
+    )
+
+    comparison = di2_compare_weekday_weekend_means(
+        di2_build_weekend_comparison(prepared)
+    )
+
+    for demand_label in [
+        "sales",
+        "redemption",
+    ]:
+        details = comparison.get(
+            demand_label,
+            {},
+        )
+
+        difference = details.get(
+            "weekend_minus_weekday"
+        )
+
+        if difference is None:
+            continue
+
+        direction = (
+            "higher"
+            if difference > 0
+            else "lower"
+            if difference < 0
+            else "similar"
+        )
+
+        insights.append(
+            create_insight(
+                category="Weekday/Weekend Comparison",
+                title=(
+                    f"Observed Weekend {demand_label.title()} "
+                    "Compared With Weekdays"
+                ),
+                description=(
+                    f"The average observed weekend {demand_label} count "
+                    f"per record is {direction} than the weekday mean. "
+                    f"The difference is {difference}."
+                ),
+                severity="INFO",
+                metric_name=(
+                    f"{demand_label.title()}_Weekend_Minus_Weekday"
+                ),
+                metric_value=difference,
+                recommendation=(
+                    "Review the number of distinct dates, missing intervals, "
+                    "and calendar coverage before using this comparison "
+                    "for operational planning."
+                ),
+            )
+        )
+
+    return insights
+
+--- di2_build_output_tables [1/1], lines 7777-7928 ---
+def di2_build_output_tables(
+    dataframe: pd.DataFrame,
+) -> dict[str, pd.DataFrame]:
+    """Build all major Part 2 output tables from one prepared dataset."""
+
+    prepared = di2_prepare_dataframe(
+        dataframe
+    )
+
+    daily = di2_add_daily_change_metrics(
+        di2_build_daily_series(prepared)
+    )
+
+    daily = di2_add_daily_coverage_flags(
+        daily
+    )
+
+    weekly = di2_add_weekly_change_metrics(
+        di2_build_weekly_series(prepared)
+    )
+
+    monthly = di2_add_monthly_change_metrics(
+        di2_build_monthly_series(prepared)
+    )
+
+    hourly = di2_build_hourly_profile(
+        prepared
+    )
+
+    weekday = di2_build_weekday_profile(
+        prepared
+    )
+
+    weekend = di2_build_weekend_comparison(
+        prepared
+    )
+
+    time_block = di2_build_time_block_profile(
+        prepared
+    )
+
+    rolling = di2_add_rolling_change_metrics(
+        daily,
+        demand_columns=(
+            "Sales_Count",
+            "Redemption_Count",
+        ),
+        windows=(3, 7, 14),
+    )
+
+    unusual = di2_build_unusual_daily_periods(
+        daily
+    )
+
+    sales_peaks = di2_build_daily_peak_table(
+        daily,
+        demand_name="Sales Count",
+        top_n=20,
+    )
+
+    redemption_peaks = di2_build_daily_peak_table(
+        daily,
+        demand_name="Redemption Count",
+        top_n=20,
+    )
+
+    sales_low = di2_build_daily_low_table(
+        daily,
+        demand_name="Sales Count",
+        bottom_n=20,
+    )
+
+    redemption_low = di2_build_daily_low_table(
+        daily,
+        demand_name="Redemption Count",
+        bottom_n=20,
+    )
+
+    hour_weekday_sales = di2_build_hour_weekday_matrix(
+        prepared,
+        demand_name="Sales Count",
+    )
+
+    hour_weekday_redemption = di2_build_hour_weekday_matrix(
+        prepared,
+        demand_name="Redemption Count",
+    )
+
+    month_hour_sales = di2_build_month_hour_matrix(
+        prepared,
+        demand_name="Sales Count",
+    )
+
+    month_hour_redemption = di2_build_month_hour_matrix(
+        prepared,
+        demand_name="Redemption Count",
+    )
+
+    weekday_hour = di2_build_weekday_hour_summary(
+        prepared
+    )
+
+    observation_profile = di2_build_daily_observation_profile(
+        prepared
+    )
+
+    coverage_profile = di2_build_profile_coverage(
+        prepared
+    )
+
+    interval_flags = di2_build_interval_flags(
+        prepared
+    )
+
+    daily_shares = di2_add_both_demand_shares(
+        daily
+    )
+
+    weekly_shares = di2_add_both_demand_shares(
+        weekly
+    )
+
+    monthly_shares = di2_add_both_demand_shares(
+        monthly
+    )
+
+    return {
+        "daily_trend": daily,
+        "weekly_trend": weekly,
+        "monthly_trend": monthly,
+        "hourly_profile": hourly,
+        "weekday_profile": weekday,
+        "weekend_comparison": weekend,
+        "time_block_profile": time_block,
+        "rolling_daily_trend": rolling,
+        "unusual_daily_periods": unusual,
+        "sales_peak_days": sales_peaks,
+        "redemption_peak_days": redemption_peaks,
+        "sales_low_days": sales_low,
+        "redemption_low_days": redemption_low,
+        "weekday_hour_sales_matrix": hour_weekday_sales,
+        "weekday_hour_redemption_matrix": hour_weekday_redemption,
+        "month_hour_sales_matrix": month_hour_sales,
+        "month_hour_redemption_matrix": month_hour_redemption,
+        "weekday_hour_summary": weekday_hour,
+        "daily_observation_profile": observation_profile,
+        "profile_coverage": coverage_profile,
+        "interval_flags": interval_flags,
+        "daily_demand_shares": daily_shares,
+        "weekly_demand_shares": weekly_shares,
+        "monthly_demand_shares": monthly_shares,
+    }
+
+--- di2_build_time_analysis [1/1], lines 10656-10843 ---
+def di2_build_time_analysis(
+    dataframe: pd.DataFrame,
+    timestamp_column: str = "Timestamp",
+    demand_column: str = "Sales Count",
+) -> Dict[str, Any]:
+    """
+    Build all core time-based analysis tables.
+
+    The input dataframe may be the original dataset or a
+    dataframe already loaded by Part 1.
+
+    Returns
+    -------
+    dict
+        Prepared dataframe, analysis tables, insights, and summary.
+    """
+    prepared = di2_prepare_time_dataframe(
+        dataframe=dataframe,
+        timestamp_column=timestamp_column,
+        demand_column=demand_column,
+    )
+
+    if prepared.empty:
+        raise ValueError(
+            "No valid observations remain after preparation."
+        )
+
+    hourly_profile = di2_build_hourly_profile(
+        prepared,
+        demand_column=demand_column,
+    )
+
+    weekday_profile = di2_build_weekday_profile(
+        prepared,
+        demand_column=demand_column,
+    )
+
+    weekday_hour_matrix = di2_build_weekday_hour_matrix(
+        prepared,
+        demand_column=demand_column,
+        statistic="mean",
+    )
+
+    weekend_profile = di2_build_weekend_comparison(
+        prepared,
+        demand_column=demand_column,
+    )
+
+    monthly_profile = di2_build_monthly_profile(
+        prepared,
+        demand_column=demand_column,
+    )
+
+    year_month_profile = di2_build_year_month_profile(
+        prepared,
+        demand_column=demand_column,
+    )
+
+    yearly_profile = di2_build_yearly_profile(
+        prepared,
+        demand_column=demand_column,
+    )
+
+    daily_profile = di2_build_daily_profile(
+        prepared.rename(
+            columns={
+                timestamp_column: "Timestamp",
+            }
+        ),
+        demand_column=demand_column,
+    )
+
+    hourly_variability = di2_build_hourly_variability(
+        prepared,
+        demand_column=demand_column,
+    )
+
+    peak_hours_by_weekday = (
+        di2_build_peak_hours_by_weekday(
+            prepared,
+            demand_column=demand_column,
+        )
+    )
+
+    peak_periods = di2_identify_peak_periods(
+        prepared,
+        demand_column=demand_column,
+        quantile=0.90,
+    )
+
+    quantile_summary = di2_build_quantile_summary(
+        prepared,
+        demand_column=demand_column,
+    )
+
+    rolling_statistics = di2_build_rolling_statistics(
+        prepared.rename(
+            columns={
+                timestamp_column: "Timestamp",
+            }
+        ),
+        demand_column=demand_column,
+    )
+
+    classified_demand = di2_classify_demand_levels(
+        prepared,
+        demand_column=demand_column,
+    )
+
+    insights = di2_generate_time_insights(
+        dataframe=prepared,
+        hourly_profile=hourly_profile,
+        weekday_profile=weekday_profile,
+        monthly_profile=monthly_profile,
+        weekend_profile=weekend_profile,
+        daily_profile=daily_profile,
+        demand_column=demand_column,
+    )
+
+    summary = {
+        "status": "success",
+        "part": 2,
+        "version": DI2_VERSION,
+        "timestamp_column": timestamp_column,
+        "demand_column": demand_column,
+        "input_records": int(len(dataframe)),
+        "valid_records": int(len(prepared)),
+        "invalid_records_removed": int(
+            len(dataframe) - len(prepared)
+        ),
+        "first_timestamp": str(
+            prepared[timestamp_column].min()
+        ),
+        "last_timestamp": str(
+            prepared[timestamp_column].max()
+        ),
+        "total_observed_demand": di2_safe_float(
+            prepared[demand_column].sum()
+        ),
+        "mean_record_demand": di2_safe_float(
+            prepared[demand_column].mean()
+        ),
+        "median_record_demand": di2_safe_float(
+            prepared[demand_column].median()
+        ),
+        "minimum_record_demand": di2_safe_float(
+            prepared[demand_column].min()
+        ),
+        "maximum_record_demand": di2_safe_float(
+            prepared[demand_column].max()
+        ),
+        "unique_observed_dates": int(
+            prepared["DI2_Date"].nunique()
+        ),
+        "unique_observed_years": int(
+            prepared["DI2_Year"].nunique()
+        ),
+        "unique_observed_months": int(
+            prepared["DI2_Year_Month"].nunique()
+        ),
+        "insight_count": int(
+            len(insights)
+        ),
+        "interpretation_scope": (
+            "Observed ticket demand only; not ferry capacity, "
+            "queue length, passenger count, or exact boarding demand."
+        ),
+    }
+
+    return {
+        "prepared_dataframe": prepared,
+        "hourly_profile": hourly_profile,
+        "weekday_profile": weekday_profile,
+        "weekday_hour_matrix": weekday_hour_matrix,
+        "weekend_profile": weekend_profile,
+        "monthly_profile": monthly_profile,
+        "year_month_profile": year_month_profile,
+        "yearly_profile": yearly_profile,
+        "daily_profile": daily_profile,
+        "hourly_variability": hourly_variability,
+        "peak_hours_by_weekday": peak_hours_by_weekday,
+        "peak_periods": peak_periods,
+        "quantile_summary": quantile_summary,
+        "rolling_statistics": rolling_statistics,
+        "classified_demand": classified_demand,
+        "insights": insights,
+        "summary": summary,
+    }
+
+--- di2_export_time_analysis [1/1], lines 10985-11106 ---
+def di2_export_time_analysis(
+    analysis: Dict[str, Any],
+) -> Dict[str, Any]:
+    """
+    Export the main Part 2 tables and summary reports.
+
+    Large observation-level tables are saved as CSV files.
+    A compact JSON file stores the main summary and insights.
+    """
+    directories = di2_create_output_directories()
+
+    output_dir = directories[
+        "output_dir"
+    ]
+
+    report_dir = directories[
+        "report_dir"
+    ]
+
+    export_map = {
+        "hourly_profile": (
+            output_dir / DI2_HOURLY_FILE
+        ),
+        "weekday_profile": (
+            output_dir / DI2_WEEKDAY_FILE
+        ),
+        "monthly_profile": (
+            output_dir / DI2_MONTHLY_FILE
+        ),
+        "yearly_profile": (
+            output_dir / DI2_YEARLY_FILE
+        ),
+        "weekend_profile": (
+            output_dir / DI2_WEEKEND_FILE
+        ),
+        "peak_periods": (
+            output_dir / DI2_PEAK_FILE
+        ),
+        "rolling_statistics": (
+            output_dir / DI2_ROLLING_FILE
+        ),
+        "weekday_hour_matrix": (
+            output_dir / "weekday_hour_matrix.csv"
+        ),
+        "year_month_profile": (
+            output_dir / "year_month_profile.csv"
+        ),
+        "daily_profile": (
+            output_dir / "daily_demand_profile.csv"
+        ),
+        "hourly_variability": (
+            output_dir / "hourly_demand_variability.csv"
+        ),
+        "peak_hours_by_weekday": (
+            output_dir / "peak_hours_by_weekday.csv"
+        ),
+        "quantile_summary": (
+            output_dir / "demand_quantile_summary.csv"
+        ),
+        "classified_demand": (
+            output_dir / "classified_demand.csv"
+        ),
+    }
+
+    exported_files = {}
+
+    for key, output_path in export_map.items():
+        dataframe = analysis.get(
+            key
+        )
+
+        if not isinstance(
+            dataframe,
+            pd.DataFrame,
+        ):
+            continue
+
+        exported_files[key] = (
+            di2_export_dataframe(
+                dataframe,
+                output_path,
+            )
+        )
+
+    summary = analysis.get(
+        "summary",
+        {},
+    )
+
+    insights = analysis.get(
+        "insights",
+        [],
+    )
+
+    summary_payload = {
+        "summary": summary,
+        "insights": insights,
+        "exported_files": exported_files,
+    }
+
+    summary_export = di2_export_json(
+        summary_payload,
+        report_dir / DI2_SUMMARY_FILE,
+    )
+
+    insights_export = di2_export_json(
+        {
+            "insight_count": len(insights),
+            "insights": insights,
+        },
+        report_dir / DI2_INSIGHTS_FILE,
+    )
+
+    return {
+        "status": "success",
+        "exported_file_count": len(
+            exported_files
+        ),
+        "files": exported_files,
+        "summary_json": summary_export,
+        "insights_json": insights_export,
+    }
+
+--- di2_run_time_intelligence [1/1], lines 11258-11297 ---
+def di2_run_time_intelligence(
+    dataframe: pd.DataFrame,
+    timestamp_column: str = "Timestamp",
+    demand_column: str = "Sales Count",
+    export_results: bool = True,
+) -> Dict[str, Any]:
+    """
+    Run the Part 2 time-based analysis and optionally export it.
+
+    This wrapper does not load the original CSV automatically.
+    Pass the already-loaded dataframe to this function.
+    """
+    LOGGER.info(
+        "Starting Part 2 time-based demand intelligence."
+    )
+
+    analysis = di2_build_time_analysis(
+        dataframe=dataframe,
+        timestamp_column=timestamp_column,
+        demand_column=demand_column,
+    )
+
+    if export_results:
+        analysis["export_result"] = (
+            di2_export_time_analysis(
+                analysis
+            )
+        )
+
+        analysis["text_report_result"] = (
+            di2_export_text_report(
+                analysis
+            )
+        )
+
+    LOGGER.info(
+        "Part 2 time-based demand intelligence completed."
+    )
+
+    return analysis
+
+====================================================================================================
+4. DATAFRAME COLUMN REFERENCES IN REPORTING / ANALYSIS
+====================================================================================================
+
+di2_prepare_dataframe (line 3878):
+  _analysis_timestamp [10], _analysis_sales [2], _analysis_redemption [2], _analysis_source_row [2], _analysis_hour [2], _analysis_day_of_week [2], _analysis_date [1], _analysis_day_name [1], _analysis_month [1], _analysis_year [1], _analysis_time_block [1], _analysis_day_category [1]
+
+di2_validate_chronology (line 4121):
+  _analysis_timestamp [1]
+
+di2_build_interval_flags (line 4198):
+  Interval_Minutes [10], _analysis_timestamp [3], Previous_Timestamp [1], Is_Duplicate_Timestamp [1], Is_Gap_Over_15_Minutes [1], Is_Gap_Over_30_Minutes [1], Is_Gap_Over_60_Minutes [1], Interval_Classification [1]
+
+di2_build_daily_series (line 4261):
+  Date [8], Sales_Count [2], Redemption_Count [2], Day_Of_Week_Number [2], Is_Weekend [2], Day_Of_Week [1], Year [1], Month_Number [1], Month_Name [1], Day_Category [1], Sales_Valid_Count [1], Redemption_Valid_Count [1], _analysis_date [1]
+
+di2_add_daily_change_metrics (line 4370):
+  Date [1]
+
+di2_build_weekly_series (line 4469):
+  Week_Start [3], Sales_Count [3], Redemption_Count [3], Date [2], Sales_Valid_Days [2], Redemption_Valid_Days [2], Is_Partial_Week [1], Sales_Per_Observed_Day [1], Redemption_Per_Observed_Day [1], Observation_Days [1]
+
+di2_build_monthly_series (line 4594):
+  Sales_Count [3], Redemption_Count [3], Sales_Valid_Days [2], Redemption_Valid_Days [2], Year [2], Month_Number [2], Sales_Per_Observed_Day [1], Redemption_Per_Observed_Day [1], Month_Name [1]
+
+_legacy_di2_build_hourly_profile (line 4710):
+  Hour [3], Hour_Label [1], Time_Block [1], _analysis_hour [1]
+
+di2_rank_hourly_profile (line 4810):
+  Average_Demand_Rank [1], Ranked_Demand_Measure [1]
+
+_legacy_di2_build_weekday_profile (line 4881):
+  Weekday [2], Weekday_Number [2], Day_Category [1], _analysis_day_of_week [1], _analysis_day_name [1]
+
+_legacy_di2_build_weekend_comparison (line 4984):
+  Day_Category [1], _analysis_day_category [1]
+
+di2_compare_weekday_weekend_means (line 5071):
+  Day_Category [1]
+
+di2_build_time_block_profile (line 5148):
+  Time_Block [3], _analysis_time_block [1]
+
+di2_flag_peak_periods (line 5290):
+  Peak_Threshold [2], Is_Peak_Period [2], Peak_Percentile [2]
+
+di2_flag_low_demand_periods (line 5339):
+  Low_Demand_Threshold [2], Is_Low_Demand_Period [2], Low_Demand_Percentile [2]
+
+di2_build_daily_peak_table (line 5388):
+  Demand_Measure [1]
+
+di2_build_daily_low_table (line 5447):
+  Demand_Measure [1]
+
+di2_summarize_daily_trends (line 5808):
+  Date [2], start_date [1], end_date [1], Sales_Count [1], Redemption_Count [1]
+
+di2_build_hour_weekday_matrix (line 5847):
+  _analysis_day_name [1], _analysis_hour [1]
+
+di2_build_month_hour_matrix (line 5898):
+  _analysis_month [1], _analysis_hour [1]
+
+di2_build_weekday_hour_summary (line 5947):
+  Weekday_Number [1], Hour [1], _analysis_day_of_week [1], _analysis_day_name [1], _analysis_hour [1]
+
+di2_add_monthly_change_metrics (line 6031):
+  Year [2], Month_Number [2], Month_Key [1]
+
+di2_add_weekly_change_metrics (line 6111):
+  Week_Start [1]
+
+di2_flag_unusual_demand (line 6221):
+  Any_Unusual_Demand_Flag [2], Unusual_Demand_Method [1], Unusual_Demand_Threshold [1]
+
+di2_build_unusual_daily_periods (line 6318):
+  Date [1], Any_Unusual_Demand_Flag [1]
+
+di2_summarize_zero_and_missing_demand (line 6350):
+  _analysis_sales [1], _analysis_redemption [1]
+
+di2_build_distribution_report (line 6489):
+  _analysis_sales [1], _analysis_redemption [1]
+
+di2_build_stability_report (line 6573):
+  _analysis_sales [1], _analysis_redemption [1], Sales_Count [1], Redemption_Count [1]
+
+di2_build_profile_coverage (line 6610):
+  Profile_Type [3], Observation_Count [2], Distinct_Dates [2], Category_Value [2], Category_Label [1], _analysis_hour [1], _analysis_day_of_week [1], _analysis_day_name [1]
+
+di2_add_daily_coverage_flags (line 6725):
+  Observed_Span_Minutes [6], Observation_Count [5], Meets_Minimum_Observation_Count [1], Observed_Span_Hours [1], Coverage_Classification [1], Coverage_Warning [1], Last_Observed_Timestamp [1], First_Observed_Timestamp [1]
+
+di2_build_daily_observation_profile (line 6817):
+  Date [5], Observed_Span_Minutes [2], Interval_Mean_Minutes [2], _analysis_date [2], Observed_Span_Hours [1], _analysis_timestamp [1], Maximum_Within_Day_Gap_Minutes [1], Last_Observed_Timestamp [1], First_Observed_Timestamp [1]
+
+di2_generate_peak_hour_insights (line 7001):
+  Hour [1], mean [1], Observation_Count [1], hour [1]
+
+di2_generate_weekday_insights (line 7114):
+  Weekday [2]
+
+di2_generate_monthly_insights (line 7209):
+  Year [2], Month_Number [2]
+
+di2_generate_trend_insights (line 7300):
+  direction [1], Undetermined [1], slope_per_observation [1], status [1]
+
+di2_build_seasonality_summary (line 7370):
+  Sales_Mean [2], Redemption_Mean [2]
+
+di2_generate_all_time_insights (line 7662):
+  weekend_minus_weekday [1]
+
+di2_build_run_summary (line 8211):
+  _analysis_timestamp [2]
+
+di2_analyze_time_patterns (line 8273):
+  daily_trend [1], weekend_comparison [1]
+
+di2_export_analysis (line 8371):
+  exported_file_count_before_run_summary [1], exported_files [1], tables [1]
+
+di2_run_time_pattern_analysis (line 8441):
+  started_at_utc [1], source_path [1], export_enabled [1], duration_seconds [1]
+
+di2_prepare_time_dataframe (line 8928):
+  DI2_Day_Of_Week [2], DI2_Hour [2], DI2_Is_Weekend [2], DI2_Date [1], DI2_Year [1], DI2_Month [1], DI2_Month_Name [1], DI2_Quarter [1], DI2_Day [1], DI2_Day_Name [1], DI2_Minute [1], DI2_Is_Weekday [1], DI2_Hour_Bucket [1], DI2_Year_Month [1]
+
+di2_group_demand (line 9117):
+  Standard_Deviation [3], Mean_Demand [3], Maximum_Demand [2], Demand_Range [1], Demand_Volatility_Percent [1], Mean_Median_Difference [1], Peak_To_Average_Ratio [1], Minimum_Demand [1], Median_Demand [1]
+
+_modern_di2_build_hourly_profile (line 9237):
+  Mean_Demand [2], DI2_Hour [2], Total_Demand [2], Hour_Label [1], Share_Of_Observed_Demand_Percent [1], Mean_Demand_Vs_Overall [1], Mean_Demand_Index [1]
+
+_modern_di2_build_weekday_profile (line 9312):
+  Mean_Demand_Index [1], Demand_Share_Percent [1], DI2_Day_Of_Week [1], Mean_Demand [1], Total_Demand [1]
+
+_modern_di2_build_weekend_comparison (line 9431):
+  Unique_Dates [3], DI2_Is_Weekend [3], Day_Type [1], Average_Records_Per_Date [1], Average_Daily_Demand_Proxy [1], DI2_Date [1], Record_Count [1], Total_Demand [1]
+
+di2_build_monthly_profile (line 9504):
+  Mean_Demand_Index [1], DI2_Month [1], Mean_Demand [1]
+
+di2_build_year_month_profile (line 9553):
+  Previous_Month_Demand [3], Period_Start [2], Month_Over_Month_Change [2], Previous_Month_Mean [2], Total_Demand [2], Mean_Demand [2], Month_Over_Month_Change_Percent [1], Mean_Demand_Change [1], DI2_Year_Month [1]
+
+di2_build_yearly_profile (line 9622):
+  Observed_Dates [3], Previous_Year_Total [3], Total_Demand [3], Year_Over_Year_Change [2], Average_Demand_Per_Observed_Date [1], Year_Is_Partial [1], Year_Over_Year_Change_Percent [1], DI2_Date [1], DI2_Year [1]
+
+di2_build_daily_profile (line 9695):
+  Date [6], Previous_Day_Demand [3], Daily_Change [2], Daily_Demand [2], DI2_Date [2], Weekday [1], Year [1], Month [1], Is_Weekend [1], Daily_Change_Percent [1]
+
+di2_identify_peak_periods (line 9791):
+  DI2_Is_Peak_Demand [2], DI2_Peak_Threshold [1], DI2_Demand_Above_Threshold [1], DI2_Peak_Quantile [1]
+
+di2_build_rolling_statistics (line 9920):
+  Timestamp [3]
+
+_modern_di2_add_rolling_change_metrics (line 10004):
+  DI2_Rolling_Mean [5], DI2_Rolling_Std [3], DI2_Difference_From_Rolling_Mean [2], DI2_Rolling_Upper_Band [1], DI2_Rolling_Lower_Band [1], DI2_Relative_To_Rolling_Mean_Percent [1]
+
+di2_classify_demand_levels (line 10080):
+  DI2_Demand_Level [1], DI2_Demand_Q50 [1], DI2_Demand_Q75 [1], DI2_Demand_Q90 [1], DI2_Demand_Q95 [1]
+
+di2_build_hourly_variability (line 10145):
+  Variability_Rank [2], Hour_Label [1], Volatility_Rank [1], Standard_Deviation [1], Demand_Volatility_Percent [1], DI2_Hour [1]
+
+di2_build_peak_hours_by_weekday (line 10196):
+  Within_Weekday_Rank [2], Hour_Label [1], DI2_Day_Of_Week [1], Mean_Demand [1], DI2_Day_Name [1], DI2_Hour [1]
+
+di2_build_daily_trend_summary (line 10364):
+  Daily_Demand [1], direction [1], slope [1], Date [1]
+
+di2_generate_time_insights (line 10415):
+  Mean_Demand [10], Day_Type [2], Hour_Label [2], DI2_Hour [2], DI2_Day_Name [2], DI2_Month_Name [2], trend_slope_per_observation [1], observed_days [1], trend_direction [1]
+
+di2_build_time_analysis (line 10656):
+  DI2_Date [1], DI2_Year [1], DI2_Year_Month [1]
+
+di2_export_time_analysis (line 10985):
+  output_dir [1], report_dir [1], summary [1], insights [1]
+
+di2_build_text_report (line 11113):
+  N/A [5], summary [1], insights [1], status [1], unknown [1], valid_records [1], first_timestamp [1], last_timestamp [1], total_observed_demand [1], mean_record_demand [1], median_record_demand [1], maximum_record_demand [1], minimum_record_demand [1], title [1], Untitled [1], category [1], General [1], observation [1], interpretation [1], limitation [1]
+
+di2_export_text_report (line 11223):
+  report_dir [1]
+
+di2_run_time_intelligence (line 11258):
+  export_result [1], text_report_result [1]
+
+====================================================================================================
+5. CALL SITES FOR CRITICAL FUNCTIONS
+====================================================================================================
+
+di2_add_rolling_change_metrics:
+  7488, 7818, 8712
+
+di2_build_hourly_profile:
+  7384, 7574, 7675, 7802, 8079, 8615, 10683
+
+di2_build_weekday_profile:
+  7388, 7578, 7679, 7806, 8083, 8625, 10688
+
+di2_build_weekend_comparison:
+  7718, 7810, 8087, 8636, 10699
+
+di2_build_output_tables:
+  8292
+
+di2_build_time_analysis:
+  11274
+
+di2_run_time_intelligence:
+  No direct Name-based calls found.
+
+di2_export_time_analysis:
+  11282
+_legacy_di2_add_rolling_change_metrics: 11329
+_modern_di2_add_rolling_change_metrics: 11321
+_legacy_di2_build_hourly_profile: 11343
+_modern_di2_build_hourly_profile: 11339
+_legacy_di2_build_weekday_profile: 11353
+_modern_di2_build_weekday_profile: 11349
+_legacy_di2_build_weekend_comparison: 11363
+_modern_di2_build_weekend_comparison: 11359
+
+====================================================================================================
+6. REGISTRY AND PUBLIC EXPORT DEFINITIONS
+====================================================================================================
+
+DI2_FUNCTION_REGISTRY:
+  Line 11365
+DI2_FUNCTION_REGISTRY = {
+    "prepare_time_dataframe": di2_prepare_time_dataframe,
+    "group_demand": di2_group_demand,
+    "hourly_profile": di2_build_hourly_profile,
+    "weekday_profile": di2_build_weekday_profile,
+    "weekday_hour_matrix": di2_build_weekday_hour_matrix,
+    "weekend_comparison": di2_build_weekend_comparison,
+    "monthly_profile": di2_build_monthly_profile,
+    "year_month_profile": di2_build_year_month_profile,
+    "yearly_profile": di2_build_yearly_profile,
+    "daily_profile": di2_build_daily_profile,
+    "peak_periods": di2_identify_peak_periods,
+    "quantile_summary": di2_build_quantile_summary,
+    "rolling_statistics": di2_build_rolling_statistics,
+    "classify_demand": di2_classify_demand_levels,
+    "hourly_variability": di2_build_hourly_variability,
+    "peak_hours_by_weekday": di2_build_peak_hours_by_weekday,
+    "trend_direction": di2_estimate_trend_direction,
+    "time_insights": di2_generate_time_insights,
+    "build_analysis": di2_build_time_analysis,
+    "export_analysis": di2_export_time_analysis,
+    "run_time_intelligence": di2_run_time_intelligence,
+}
+
+DI2_PUBLIC_NAMES:
+  Line 11472
+DI2_PUBLIC_NAMES = [
+    "DI2_VERSION",
+    "DI2_METADATA",
+    "DI2_FUNCTION_REGISTRY",
+    "di2_get_metadata",
+    "di2_list_functions",
+    "di2_get_function",
+    "di2_prepare_time_dataframe",
+    "di2_group_demand",
+    "di2_build_hourly_profile",
+    "di2_build_weekday_profile",
+    "di2_build_weekday_hour_matrix",
+    "di2_build_weekend_comparison",
+    "di2_build_monthly_profile",
+    "di2_build_year_month_profile",
+    "di2_build_yearly_profile",
+    "di2_build_daily_profile",
+    "di2_identify_peak_periods",
+    "di2_build_quantile_summary",
+    "di2_build_rolling_statistics",
+    "di2_add_rolling_change_metrics",
+    "di2_classify_demand_levels",
+    "di2_build_hourly_variability",
+    "di2_build_peak_hours_by_weekday",
+    "di2_build_peak_dates",
+    "di2_build_low_demand_dates",
+    "di2_estimate_trend_direction",
+    "di2_build_daily_trend_summary",
+    "di2_generate_time_insights",
+    "di2_build_time_analysis",
+    "di2_export_dataframe",
+    "di2_export_json",
+    "di2_export_time_analysis",
+    "di2_build_text_report",
+    "di2_export_text_report",
+    "di2_run_time_intelligence",
+]
+
+====================================================================================================
+7. TOP-LEVEL IMPORTS
+====================================================================================================
+47: from __future__ import annotations
+49: import csv
+50: import json
+51: import logging
+52: import math
+53: import os
+54: import platform
+55: import statistics
+56: import sys
+57: import time
+58: import traceback
+60: from collections import Counter
+61: from dataclasses import asdict, dataclass, field
+62: from datetime import datetime, timezone
+63: from pathlib import Path
+64: from typing import Any, Iterable, Optional, Sequence
+66: import numpy as np
+67: import pandas as pd
+8780: from typing import Any, Dict, List, Optional, Tuple
+
+====================================================================================================
+8. DATASET / SCHEMA / ENTRY-POINT CONSTANTS
+====================================================================================================
+COLUMN_ALIASES: line(s) 762
+DATASET_VALIDATION_REPORT_PATH: line(s) 156
+DEMAND_BY_DATE_CSV_PATH: line(s) 188
+DEMAND_BY_DAY_CSV_PATH: line(s) 180
+DEMAND_BY_HOUR_CSV_PATH: line(s) 176
+DEMAND_BY_MONTH_CSV_PATH: line(s) 184
+DEMAND_COLUMNS: line(s) 96
+DEMAND_CORRELATION_CSV_PATH: line(s) 192
+DEMAND_DUPLICATE_REPORT_PATH: line(s) 200
+DEMAND_INSIGHTS_CSV_PATH: line(s) 172
+DEMAND_MISSING_VALUES_CSV_PATH: line(s) 196
+DEMAND_OUTPUT_DIR: line(s) 124
+DEMAND_REPORT_DIR: line(s) 126
+DEMAND_RUN_SUMMARY_PATH: line(s) 204
+DEMAND_SUMMARY_PATH: line(s) 160
+DI2_DEMAND_QUANTILES: line(s) 8811
+DI2_FUNCTION_REGISTRY: line(s) 11365
+DI2_HOURLY_PROFILE_PATH: line(s) 3775
+DI2_LOW_DEMAND_PERIODS_PATH: line(s) 3795
+DI2_METADATA: line(s) 11394
+DI2_OUTPUT_DIRECTORY: line(s) 3759
+DI2_OUTPUT_ROOT: line(s) 8789
+DI2_PUBLIC_NAMES: line(s) 11472
+DI2_VERSION: line(s) 3755, 8787
+DI2_WEEKDAY_PROFILE_PATH: line(s) 3779
+DI3_DEMAND_QUALITY_FILE: line(s) 11576
+DI3_FUNCTION_REGISTRY: line(s) 15208
+DI3_METADATA: line(s) 15244
+DI3_OUTPUT_ROOT: line(s) 11553
+DI3_PUBLIC_NAMES: line(s) 15332
+DI3_VERSION: line(s) 11551
+DI3_ZERO_DEMAND_FILE: line(s) 11572
+EXPECTED_ID_COLUMN: line(s) 94
+EXPECTED_REDEMPTION_COLUMN: line(s) 92
+EXPECTED_SALES_COLUMN: line(s) 90
+EXPECTED_TIMESTAMP_COLUMN: line(s) 88
+LOG_FILE_PATH: line(s) 248
+MODULE_VERSION: line(s) 82
+OUTPUT_DIR: line(s) 120
+SOURCE_DATA_PATH: line(s) 130
+Sales Count: 70 occurrence(s); lines 26, 90, 564, 2140, 2483, 3745, 4016, 4029, 4812, 4817, 4823, 4830, 5390, 5449, 5514, 5520, 5849, 5900, 6501, 7833, 7845, 7857, 7867, 8866, 8931, 9120, 9239, 9314, 9373, 9433, 9506, 9555, 9624, 9697, 9793, 9878, 9922, 10006, 10082, 10147, 10198, 10422, 10659, 11261, 11633, 11710, 11842, 11963, 12048, 12141, 12222, 12374, 12455, 12532, 12609, 12668, 12724, 12830, 13213, 13309, 13497, 13598, 13703, 14009, 14365, 14749, 14790, 14793, 14799, 15153
+Redemption Count: 16 occurrence(s); lines 25, 92, 2140, 2502, 3745, 4017, 4030, 4818, 4823, 5526, 5532, 6505, 7839, 7851, 7862, 7872
+Sales_Count: 56 occurrence(s); lines 1905, 1944, 1989, 2323, 2337, 2351, 4284, 4323, 4324, 4389, 4413, 4486, 4509, 4510, 4514, 4537, 4538, 4554, 4574, 4607, 4626, 4627, 4631, 4654, 4655, 4667, 4687, 4732, 4790, 4817, 4905, 4960, 5009, 5051, 5165, 5205, 5405, 5464, 5565, 5659, 5818, 6039, 6075, 6118, 6142, 6224, 6327, 6597, 6980, 6983, 7033, 7220, 7491, 7614, 7821, 11314
+Redemption_Count: 56 occurrence(s); lines 1910, 1964, 1994, 2330, 2344, 2358, 4292, 4329, 4330, 4390, 4414, 4487, 4517, 4518, 4522, 4543, 4544, 4564, 4575, 4608, 4634, 4635, 4639, 4660, 4661, 4677, 4688, 4748, 4794, 4818, 4921, 4964, 5025, 5055, 5177, 5208, 5407, 5466, 5566, 5660, 5821, 6040, 6076, 6119, 6143, 6225, 6328, 6600, 6987, 6990, 7038, 7221, 7492, 7636, 7822, 11314
+Total_Demand: 11 occurrence(s); lines 9157, 9274, 9278, 9354, 9488, 9586, 9590, 9656, 9668, 9672, 13775
+DI2_Hour: 14 occurrence(s); lines 9008, 9026, 9027, 9254, 9263, 9268, 9403, 9845, 10158, 10167, 10211, 10229, 10459, 10486
+DI2_Day_Of_Week: 6 occurrence(s); lines 9000, 9017, 9325, 9335, 10209, 10235
+Timestamp: 90 occurrence(s); lines 24, 88, 608, 1793, 1815, 1826, 2426, 2432, 2521, 2527, 4205, 4216, 4245, 4300, 4304, 6744, 6745, 6768, 6772, 6836, 6840, 6859, 6860, 8865, 8874, 8930, 9840, 9938, 9943, 9944, 9955, 9959, 10658, 10722, 10754, 10943, 11260, 11632, 11709, 12221, 12390, 12430, 12656, 12725, 12946, 12948, 12988, 13015, 13016, 13025, 13029, 13030, 13035, 13036, 13043, 13089, 13316, 13328, 13333, 13334, 13345, 13349, 13510, 13511, 13522, 13528, 13618, 13623, 13624, 13635, 13639, 13646, 13664, 13702, 13816, 13872, 13944, 14008, 14231, 14242 ...
+Date: 69 occurrence(s); lines 2089, 2094, 2336, 2343, 2711, 4314, 4318, 4319, 4336, 4340, 4343, 4346, 4350, 4364, 4388, 4407, 4492, 4494, 4506, 4525, 4526, 4529, 4530, 4623, 4642, 4643, 4646, 4647, 5005, 5825, 5828, 5835, 6338, 6633, 6671, 6692, 6707, 6708, 6742, 6848, 6853, 6854, 6907, 6913, 6919, 8976, 9467, 9469, 9475, 9479, 9489, 9647, 9650, 9653, 9657, 9664, 9709, 9734, 9735, 9740, 9744, 9748, 9752, 9758, 10386, 10808, 13527, 13532, 13557
+Weekday_Number: 5 occurrence(s); lines 4941, 4948, 4974, 5998, 6019
+Sales_Mean: 22 occurrence(s); lines 1906, 1948, 1990, 4736, 4791, 4829, 4909, 4961, 5013, 5052, 5098, 5169, 5206, 5970, 6006, 7034, 7138, 7401, 7413, 7609, 7619, 7624
+Redemption_Mean: 22 occurrence(s); lines 1911, 1968, 1995, 4752, 4795, 4831, 4925, 4965, 5029, 5056, 5099, 5181, 5209, 5982, 6009, 7039, 7139, 7407, 7419, 7631, 7641, 7646
+
+====================================================================================================
+9. FINAL STATIC SUMMARY
+====================================================================================================
+Syntax: PASS
+Duplicate function names: 0
+Main entry-point blocks: 1
+di2_build_daily_series: 1 definition(s)
+di2_add_rolling_metrics: 1 definition(s)
+_legacy_di2_add_rolling_change_metrics: 1 definition(s)
+_modern_di2_add_rolling_change_metrics: 1 definition(s)
+di2_add_rolling_change_metrics: 1 definition(s)
+_legacy_di2_build_hourly_profile: 1 definition(s)
+_modern_di2_build_hourly_profile: 1 definition(s)
+di2_build_hourly_profile: 1 definition(s)
+_legacy_di2_build_weekday_profile: 1 definition(s)
+_modern_di2_build_weekday_profile: 1 definition(s)
+di2_build_weekday_profile: 1 definition(s)
+_legacy_di2_build_weekend_comparison: 1 definition(s)
+_modern_di2_build_weekend_comparison: 1 definition(s)
+di2_build_weekend_comparison: 1 definition(s)
+di2_build_seasonality_summary: 1 definition(s)
+di2_build_peak_profile_summary: 1 definition(s)
+di2_generate_all_time_insights: 1 definition(s)
+di2_build_output_tables: 1 definition(s)
+di2_build_time_analysis: 1 definition(s)
+di2_export_time_analysis: 1 definition(s)
+di2_run_time_intelligence: 1 definition(s)

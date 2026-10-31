@@ -1,0 +1,5 @@
+Severity,Category,Issue,Affected_Rows,Details
+INFO,SCHEMA,Required schema checks passed,0,All required columns are present.
+INFO,COMPLETENESS,No missing cells detected,0,
+INFO,TIMESTAMP,Dataset is consistently in descending timestamp order,261538,Chronological sorting is required before time-series modelling.
+WARNING,TIMESTAMP,Intervals longer than expected cadence detected,25275,"Expected cadence=15 minutes; estimated missing slots=111,651. No synthetic records were created."

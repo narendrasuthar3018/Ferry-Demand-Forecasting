@@ -1,0 +1,54 @@
+[
+    {
+        "horizon_minutes": 15,
+        "input_records": 261538,
+        "valid_forecast_pairs": 236262,
+        "feature_count": 88,
+        "target_columns": [
+            "Future_Sales Count",
+            "Future_Redemption Count"
+        ],
+        "output_file": "C:\\Users\\sutha\\OneDrive\\Desktop\\Ferry-Demand-Forecasting\\outputs\\forecasts\\forecasting_dataset_15m.csv",
+        "timestamp_tolerance_minutes": 7.5,
+        "feature_policy": "Only numeric features available at forecast origin are retained. Current raw targets are excluded."
+    },
+    {
+        "horizon_minutes": 30,
+        "input_records": 261538,
+        "valid_forecast_pairs": 233344,
+        "feature_count": 88,
+        "target_columns": [
+            "Future_Sales Count",
+            "Future_Redemption Count"
+        ],
+        "output_file": "C:\\Users\\sutha\\OneDrive\\Desktop\\Ferry-Demand-Forecasting\\outputs\\forecasts\\forecasting_dataset_30m.csv",
+        "timestamp_tolerance_minutes": 7.5,
+        "feature_policy": "Only numeric features available at forecast origin are retained. Current raw targets are excluded."
+    },
+    {
+        "horizon_minutes": 60,
+        "input_records": 261538,
+        "valid_forecast_pairs": 231991,
+        "feature_count": 88,
+        "target_columns": [
+            "Future_Sales Count",
+            "Future_Redemption Count"
+        ],
+        "output_file": "C:\\Users\\sutha\\OneDrive\\Desktop\\Ferry-Demand-Forecasting\\outputs\\forecasts\\forecasting_dataset_60m.csv",
+        "timestamp_tolerance_minutes": 7.5,
+        "feature_policy": "Only numeric features available at forecast origin are retained. Current raw targets are excluded."
+    },
+    {
+        "horizon_minutes": 120,
+        "input_records": 261538,
+        "valid_forecast_pairs": 221997,
+        "feature_count": 88,
+        "target_columns": [
+            "Future_Sales Count",
+            "Future_Redemption Count"
+        ],
+        "output_file": "C:\\Users\\sutha\\OneDrive\\Desktop\\Ferry-Demand-Forecasting\\outputs\\forecasts\\forecasting_dataset_120m.csv",
+        "timestamp_tolerance_minutes": 7.5,
+        "feature_policy": "Only numeric features available at forecast origin are retained. Current raw targets are excluded."
+    }
+]

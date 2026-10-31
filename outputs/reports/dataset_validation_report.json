@@ -1,0 +1,168 @@
+{
+    "report_name": "Ferry Ticket Dataset Validation",
+    "report_version": "2.0.0",
+    "generated_at_utc": "2026-10-28T12:31:19.828203+00:00",
+    "validation_status": "PASS_WITH_WARNINGS",
+    "source": {
+        "file_name": "Toronto Island Ferry Tickets (1).csv",
+        "file_path": "C:\\Users\\sutha\\OneDrive\\Desktop\\Ferry-Demand-Forecasting\\data\\Toronto Island Ferry Tickets (1).csv",
+        "file_size_bytes": 8615688,
+        "file_size_mb": 8.217,
+        "loaded_at_utc": "2026-10-28T12:31:19.126040+00:00",
+        "load_duration_seconds": 0.201,
+        "rows": 261538,
+        "columns": 4
+    },
+    "schema": {
+        "required_columns": [
+            "_id",
+            "Timestamp",
+            "Redemption Count",
+            "Sales Count"
+        ],
+        "actual_columns": [
+            "_id",
+            "Timestamp",
+            "Redemption Count",
+            "Sales Count"
+        ],
+        "missing_required_columns": [],
+        "unexpected_columns": [],
+        "duplicate_or_conflicting_headers": [],
+        "schema_valid": true
+    },
+    "completeness_and_duplicates": {
+        "total_rows": 261538,
+        "total_cells": 1046152,
+        "missing_cells": 0,
+        "missing_rows": 0,
+        "missing_values_by_column": {
+            "_id": 0,
+            "Timestamp": 0,
+            "Redemption Count": 0,
+            "Sales Count": 0
+        },
+        "completeness_percent": 100.0,
+        "exact_duplicate_rows": 0,
+        "duplicate_ids": 0,
+        "missing_ids": 0
+    },
+    "timestamps": {
+        "timestamp_column_available": true,
+        "invalid_timestamps": 0,
+        "valid_timestamps": 261538,
+        "duplicate_valid_timestamps": 0,
+        "earliest_timestamp": "2015-05-01T13:30:00",
+        "latest_timestamp": "2025-12-21T22:30:00",
+        "chronological_order": "DESCENDING",
+        "chronological_order_violations": 0,
+        "source_positive_steps": 0,
+        "source_negative_steps": 261537,
+        "source_zero_steps": 0,
+        "expected_interval_minutes": 15,
+        "shorter_than_expected_intervals": 0,
+        "longer_than_expected_intervals": 25275,
+        "zero_intervals_after_sorting": 0,
+        "cadence_deviation_count": 25275,
+        "cadence_deviation_percent": 9.664,
+        "estimated_missing_15_minute_slots": 111651,
+        "interval_distribution": {
+            "0 days 00:15:00": 236262,
+            "0 days 00:30:00": 13415,
+            "0 days 00:45:00": 4407,
+            "0 days 01:00:00": 1834,
+            "0 days 01:15:00": 782,
+            "0 days 01:30:00": 526,
+            "0 days 07:00:00": 469,
+            "0 days 01:45:00": 363,
+            "0 days 02:00:00": 304,
+            "0 days 02:15:00": 253,
+            "0 days 02:30:00": 225,
+            "0 days 06:45:00": 199,
+            "0 days 02:45:00": 193,
+            "0 days 03:00:00": 165,
+            "0 days 07:30:00": 163,
+            "0 days 07:15:00": 159,
+            "0 days 03:30:00": 140,
+            "0 days 03:45:00": 128,
+            "0 days 03:15:00": 124,
+            "0 days 06:00:00": 114
+        }
+    },
+    "ticket_counts": {
+        "Redemption Count": {
+            "column_available": true,
+            "source_dtype": "int64",
+            "missing_values": 0,
+            "invalid_non_numeric_values": 0,
+            "infinite_values": 0,
+            "negative_values": 0,
+            "fractional_values": 0,
+            "zero_values": 27830,
+            "minimum": 0.0,
+            "maximum": 7216.0,
+            "mean": 48.885030091229574,
+            "median": 11.0,
+            "standard_deviation": 104.54933644867619,
+            "valid_numeric_values": 261538
+        },
+        "Sales Count": {
+            "column_available": true,
+            "source_dtype": "int64",
+            "missing_values": 0,
+            "invalid_non_numeric_values": 0,
+            "infinite_values": 0,
+            "negative_values": 0,
+            "fractional_values": 0,
+            "zero_values": 20548,
+            "minimum": 0.0,
+            "maximum": 7229.0,
+            "mean": 49.59910605724598,
+            "median": 13.0,
+            "standard_deviation": 99.86228463822644,
+            "valid_numeric_values": 261538
+        }
+    },
+    "data_quality": {
+        "score": 99.4,
+        "components": {
+            "schema": 100.0,
+            "timestamps": 97.58,
+            "numeric_values": 100.0,
+            "duplicates": 100.0,
+            "completeness": 100.0
+        },
+        "weights": {
+            "schema": 20,
+            "timestamps": 25,
+            "numeric_values": 25,
+            "duplicates": 15,
+            "completeness": 15
+        },
+        "interpretation": "Project-defined diagnostic heuristic, not a probability or a substitute for reviewing individual data-quality issues."
+    },
+    "issue_summary": {
+        "total_issues": 4,
+        "by_severity": {
+            "CRITICAL": 0,
+            "ERROR": 0,
+            "WARNING": 1,
+            "INFO": 3
+        }
+    },
+    "artifacts": {
+        "json_report": "C:\\Users\\sutha\\OneDrive\\Desktop\\Ferry-Demand-Forecasting\\outputs\\reports\\dataset_validation_report.json",
+        "issues_csv": "C:\\Users\\sutha\\OneDrive\\Desktop\\Ferry-Demand-Forecasting\\outputs\\reports\\dataset_validation_issues.csv",
+        "column_profile_csv": "C:\\Users\\sutha\\OneDrive\\Desktop\\Ferry-Demand-Forecasting\\outputs\\reports\\dataset_column_profile.csv",
+        "log_file": "C:\\Users\\sutha\\OneDrive\\Desktop\\Ferry-Demand-Forecasting\\outputs\\logs\\check_dataset.log"
+    },
+    "limitations": [
+        "The original source CSV is never modified by this script.",
+        "Missing timestamp estimates do not prove zero demand.",
+        "Irregular timestamps are reported, not automatically filled.",
+        "Duplicate timestamps are not automatically treated as duplicate transactions.",
+        "The quality score is a project-defined diagnostic heuristic.",
+        "Timestamp sorting is required before downstream time-series modelling."
+    ],
+    "execution_duration_seconds": 0.916
+}

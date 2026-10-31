@@ -1,0 +1,43 @@
+{
+    "input_records": 261538,
+    "training_records": 209230,
+    "test_records": 52308,
+    "candidate_test_origins": 30000,
+    "horizons_minutes": [
+        15,
+        30,
+        60,
+        120
+    ],
+    "targets": [
+        "Sales Count",
+        "Redemption Count"
+    ],
+    "evaluation_strategy": "Chronological holdout; no random shuffle.",
+    "horizon_matching_tolerance_minutes": 7.5,
+    "forecast_origin_count_by_horizon": {
+        "15": 27539,
+        "30": 27392,
+        "60": 27101,
+        "120": 26047
+    },
+    "models": [
+        "Naive_Last_Observation",
+        "Moving_Average_4",
+        "Moving_Average_12",
+        "Moving_Average_24",
+        "Seasonal_Naive_24_Hours",
+        "Seasonal_Naive_7_Days"
+    ],
+    "metrics": [
+        "MAE",
+        "RMSE",
+        "WAPE_Percent",
+        "Mean_Bias"
+    ],
+    "limitations": [
+        "This module establishes baseline benchmarks; it does not establish that any model is production-ready.",
+        "Forecast targets are matched to observed timestamps within a defined elapsed-time tolerance.",
+        "Seasonal baselines can have missing predictions when a matching historical observation is unavailable."
+    ]
+}

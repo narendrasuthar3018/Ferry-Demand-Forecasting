@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.venv/
+
+# Streamlit cache
+.streamlit/secrets.toml
+
+# Logs
+outputs/logs/
+*.log
+
+# Large generated forecasting files
+outputs/forecasts/engineered_features.csv
+outputs/forecasts/forecasting_dataset_15m.csv
+outputs/forecasts/forecasting_dataset_30m.csv
+outputs/forecasts/forecasting_dataset_60m.csv
+outputs/forecasts/forecasting_dataset_120m.csv
+outputs/forecasts/baseline_predictions.csv
+
+# Temporary files
+*.tmp
+*.bak
+outputs/forecasts/model_predictions.csv
+# Backup files
+*_backup*.py
+app_before_*.py
+demand_insights_backup*.py
+demand_insights_before_entrypoint_repair.py
+*.backup

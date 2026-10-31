@@ -1,0 +1,73 @@
+{
+    "dataset_name": "Toronto Island Ferry Tickets (1).csv",
+    "raw_dataset_rows": 261538,
+    "prepared_observed_rows": 261538,
+    "prepared_columns": [
+        "Sales Count",
+        "Redemption Count",
+        "Observed_Record",
+        "Sales Count_Rolling_Mean_4",
+        "Sales Count_Rolling_Mean_12",
+        "Sales Count_Rolling_Std_12",
+        "Redemption Count_Rolling_Mean_4",
+        "Redemption Count_Rolling_Mean_12",
+        "Redemption Count_Rolling_Std_12"
+    ],
+    "start_timestamp": "2015-05-01 13:30:00",
+    "end_timestamp": "2025-12-21 22:30:00",
+    "missing_values_in_source_targets": {
+        "Sales Count": 0,
+        "Redemption Count": 0
+    },
+    "negative_values_in_source_targets": {
+        "Sales Count": 0,
+        "Redemption Count": 0
+    },
+    "timestamp_quality": {
+        "record_count": 261538,
+        "start_timestamp": "2015-05-01 13:30:00",
+        "end_timestamp": "2025-12-21 22:30:00",
+        "unique_timestamps": 261538,
+        "expected_interval": "15min",
+        "exact_15_minute_intervals": 236262,
+        "intervals_longer_than_15_minutes": 25275,
+        "intervals_shorter_than_15_minutes": 0,
+        "median_interval_minutes": 15.0,
+        "largest_interval_minutes": 4320.0,
+        "most_common_intervals": {
+            "0 days 00:15:00": 236262,
+            "0 days 00:30:00": 13415,
+            "0 days 00:45:00": 4407,
+            "0 days 01:00:00": 1834,
+            "0 days 01:15:00": 782,
+            "0 days 01:30:00": 526,
+            "0 days 07:00:00": 469,
+            "0 days 01:45:00": 363,
+            "0 days 02:00:00": 304,
+            "0 days 02:15:00": 253,
+            "0 days 02:30:00": 225,
+            "0 days 06:45:00": 199,
+            "0 days 02:45:00": 193,
+            "0 days 03:00:00": 165,
+            "0 days 07:30:00": 163,
+            "0 days 07:15:00": 159,
+            "0 days 03:30:00": 140,
+            "0 days 03:45:00": 128,
+            "0 days 03:15:00": 124,
+            "0 days 06:00:00": 114,
+            "0 days 04:30:00": 113,
+            "0 days 04:00:00": 105,
+            "0 days 06:30:00": 102,
+            "0 days 05:00:00": 97,
+            "0 days 04:15:00": 97,
+            "0 days 05:30:00": 96,
+            "0 days 06:15:00": 96,
+            "0 days 04:45:00": 93,
+            "0 days 05:15:00": 85,
+            "0 days 05:45:00": 85
+        }
+    },
+    "missing_intervals_policy": "Missing timestamps are preserved as gaps. They are not automatically interpreted as zero demand.",
+    "forecasting_note": "Forecast horizons must be defined using elapsed time, not merely the next row, because timestamp intervals vary.",
+    "invalid_rows_removed": 0
+}

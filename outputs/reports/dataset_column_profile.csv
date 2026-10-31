@@ -1,0 +1,5 @@
+Column,Data_Type,Total_Rows,Non_Missing,Missing,Missing_Percent,Unique_Non_Missing,Minimum,Maximum,Mean,Median,Most_Common_Value
+_id,int64,261538,261538,0,0.0,261538,1.0,261538.0,130769.5,130769.5,
+Timestamp,object,261538,261538,0,0.0,261538,,,,,2015-05-01T13:30:00
+Redemption Count,int64,261538,261538,0,0.0,892,0.0,7216.0,48.885030091229574,11.0,
+Sales Count,int64,261538,261538,0,0.0,906,0.0,7229.0,49.59910605724598,13.0,
